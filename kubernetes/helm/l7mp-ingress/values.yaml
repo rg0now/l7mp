@@ -1,0 +1,12 @@
+# Default values for l7mp-ingress.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+l7mp-ingress:
+  loglevel: info
+
+l7mp:
+  # repository: master:5000/
+  pullPolicy: IfNotPresent
+  tag: latest
+
