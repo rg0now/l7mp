@@ -11,4 +11,3 @@ spec:
     targetPort: 1234
   selector:
     app: l7mp-ingress
-  type: ClusterIP

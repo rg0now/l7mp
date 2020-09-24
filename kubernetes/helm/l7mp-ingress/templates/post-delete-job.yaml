@@ -104,8 +104,8 @@ spec:
       restartPolicy: Never
       containers:
       - name: post-install-job
-        image: "{{ .Values.image.repository }}{{ .Values.image.name }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        image: "{{ .values.l7mp-k8s-operator-image.repository }}{{ .values.l7mp-k8s-operator-image.name }}:{{ .values.l7mp-k8s-operator-image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .values.image.pullPolicy }}
         command: ["python", "/app/delete.py"]
         volumeMounts:
           - name: delete-volume

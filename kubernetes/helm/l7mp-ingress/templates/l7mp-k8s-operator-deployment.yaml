@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: l7mp-k8s-operator
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: l7mp-k8s-operator
+  template:
+    metadata:
+      labels:
+        app: l7mp-k8s-operator
+    spec:
+      serviceAccountName: l7mp-account-{{ .Release.Name }}
+      containers:
+      - name: the-only-one
+        image: "{{ .values.l7mp-k8s-operator-image.repository }}{{ .values.l7mp-k8s-operator-image.name }}:{{ .values.l7mp-k8s-operator-image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .values.l7mp-k8s-operator-image.pullPolicy }}

@@ -5,7 +5,7 @@ metadata:
 data:
   l7mp-ingress.yaml: |
     admin:
-      log_level: {{ .Values.gw.loglevel }}
+      log_level: info
       log_file: stdout
       access_log_path: /tmp/admin_access.log
     listeners:

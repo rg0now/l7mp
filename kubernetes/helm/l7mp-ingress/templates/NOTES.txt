@@ -1,2 +1,0 @@
-To get a simple dashboard showing the overall summary of the system:
-  watch "kubectl get pod,svc,vsvc.l7mp.io,target,rule -o wide -n {{ .Release.Namespace }} --show-labels"

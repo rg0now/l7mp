@@ -19,10 +19,10 @@ spec:
             name: l7mp-ingress
       containers:
       - name: l7mp
-        image: "{{ .Values.l7mp.repository }}l7mp/l7mp:{{ .Values.l7mp.tag | default .Chart.AppVersion }}"
-        imagePullPolicy: {{ .Values.l7mp.pullPolicy }}
+        image: "{{ .values.l7mp-proxy-image.repository }}{{ .values.l7mp-proxy-image.name }}:{{ .values.l7mp-proxy-image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .values.l7mp-proxy-image.pullPolicy }}
         command: [ "node" ]
-        args: [ "l7mp-proxy.js", "-c", "config/l7mp-ingress.yaml", "-s", "-l", "{{ .Values.gw.loglevel }}" ]
+        args: [ "l7mp-proxy.js", "-c", "config/l7mp-ingress.yaml", "-s", "-l", "{{ .values.l7mp-proxy.logLevel }}" ]
         # command: ["/bin/sh"]
         # args: ["-c", "while true; do echo hello; sleep 10;done"]
         ports:
@@ -30,10 +30,5 @@ spec:
         volumeMounts:
           - name: l7mp-ingress-config
             mountPath: /app/config
-        env:
-        - name: POD_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
