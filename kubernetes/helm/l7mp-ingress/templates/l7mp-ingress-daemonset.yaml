@@ -19,8 +19,8 @@ spec:
             name: l7mp-ingress
       containers:
       - name: l7mp
-        image: "{{ .values.l7mp-proxy-image.repository }}{{ .values.l7mp-proxy-image.name }}:{{ .values.l7mp-proxy-image.tag | default .Chart.AppVersion }}"
-        imagePullPolicy: {{ .values.l7mp-proxy-image.pullPolicy }}
+        image: "{{ .values.l7mp_proxy_image.repository }}{{ .values.l7mp_proxy_image.name }}:{{ .values.l7mp_proxy_image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .values.l7mp_proxy_image.pullPolicy }}
         command: [ "node" ]
         args: [ "l7mp-proxy.js", "-c", "config/l7mp-ingress.yaml", "-s", "-l", "{{ .values.l7mp-proxy.logLevel }}" ]
         # command: ["/bin/sh"]

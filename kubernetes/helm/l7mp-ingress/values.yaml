@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-l7mp-k8s-operator-image:
+l7mp_operator_image:
   repository: ""
   # repository: master:5000/
   name: l7mp/l7mp-operator
@@ -10,7 +10,7 @@ l7mp-k8s-operator-image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
-l7mp-proxy-image:
+l7mp_proxy_image:
   repository: ""
   # repository: master:5000/
   name: l7mp/l7mp

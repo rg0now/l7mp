@@ -1,6 +1,6 @@
 apiVersion: v2
 name: l7mp-ingress
-description: Operator for deploying l7mp as a Kubernetes ingress
+description: Operator for deploying l7mp as a Kubernetes ingress gateway
 type: application
 version: 0.1.1
 appVersion: 0.5.4

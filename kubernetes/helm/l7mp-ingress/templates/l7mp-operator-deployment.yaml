@@ -18,5 +18,5 @@ spec:
       serviceAccountName: l7mp-account-{{ .Release.Name }}
       containers:
       - name: the-only-one
-        image: "{{ .values.l7mp-k8s-operator-image.repository }}{{ .values.l7mp-k8s-operator-image.name }}:{{ .values.l7mp-k8s-operator-image.tag | default .Chart.AppVersion }}"
-        imagePullPolicy: {{ .values.l7mp-k8s-operator-image.pullPolicy }}
+        image: "{{ .values.l7mp_operator_image.repository }}{{ .values.l7mp_operator_image.name }}:{{ .values.l7mp_operator_image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .values.l7mp_operator_image.pullPolicy }}
