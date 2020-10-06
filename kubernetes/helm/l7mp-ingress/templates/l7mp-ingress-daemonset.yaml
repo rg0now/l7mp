@@ -19,10 +19,10 @@ spec:
             name: l7mp-ingress
       containers:
       - name: l7mp
-        image: "{{ .values.l7mp_proxy_image.repository }}{{ .values.l7mp_proxy_image.name }}:{{ .values.l7mp_proxy_image.tag | default .Chart.AppVersion }}"
-        imagePullPolicy: {{ .values.l7mp_proxy_image.pullPolicy }}
+        image: "{{ .values.l7mpProxyImage.repository }}{{ .values.l7mpProxyImage.name }}:{{ .values.l7mpProxyImage.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .values.l7mpProxyImage.pullPolicy }}
         command: [ "node" ]
-        args: [ "l7mp-proxy.js", "-c", "config/l7mp-ingress.yaml", "-s", "-l", "{{ .values.l7mp_proxy_image.logLevel }}" ]
+        args: [ "l7mp-proxy.js", "-c", "config/l7mp-ingress.yaml", "-s", "-l", "{{ .values.l7mpProxyImage.logLevel }}" ]
         # command: ["/bin/sh"]
         # args: ["-c", "while true; do echo hello; sleep 10;done"]
         ports:
