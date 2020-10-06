@@ -22,7 +22,7 @@ spec:
         image: "{{ .values.l7mp_proxy_image.repository }}{{ .values.l7mp_proxy_image.name }}:{{ .values.l7mp_proxy_image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .values.l7mp_proxy_image.pullPolicy }}
         command: [ "node" ]
-        args: [ "l7mp-proxy.js", "-c", "config/l7mp-ingress.yaml", "-s", "-l", "{{ .values.l7mp-proxy.logLevel }}" ]
+        args: [ "l7mp-proxy.js", "-c", "config/l7mp-ingress.yaml", "-s", "-l", "{{ .values.l7mp_proxy_image.logLevel }}" ]
         # command: ["/bin/sh"]
         # args: ["-c", "while true; do echo hello; sleep 10;done"]
         ports:
